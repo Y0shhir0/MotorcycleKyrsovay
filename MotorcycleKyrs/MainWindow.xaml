@@ -1,0 +1,26 @@
+﻿<Window x:Class="MotorcycleKyrs.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MotorcycleKyrs"
+        mc:Ignorable="d"
+        Title="{Binding ElementName=MainFrame, Path=Content.Title}" Height="450" Width="800"  Style="{StaticResource base_window}" WindowState="Maximized">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Margin="10">
+            <Button x:Name="BtnСompany"  Content="Компания" Click="BtnСompany_Click"/>
+            <Button x:Name="BtnProduction"  Content="Производство Мотоциклов" Click="BtnProduction_Click"/>
+            <Button x:Name="BtnСustomerbase"  Content="Клиенты" Click="BtnСustomerbase_Click"/>
+            <Button x:Name="BtnOrders"  Content=" Заказы" Click="BtnOrders_Click"/>
+            <Button x:Name="BtnExit" Style="{StaticResource btnImage}" Click="BtnExit_Click">
+                <Image Source="/Assets/exit.png"/>
+            </Button>
+        </StackPanel>
+        <Frame Name="MainFrame" Grid.Row="1" NavigationUIVisibility="Hidden"/>
+    </Grid>
+</Window>
+

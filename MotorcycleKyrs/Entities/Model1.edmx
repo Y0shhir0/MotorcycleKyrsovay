@@ -1,0 +1,325 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище KompanyMotorrrModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="C_ID" />
+          </Key>
+          <Property Name="C_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="C_Title" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="C_Address" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="C_Phone" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Klients">
+          <Key>
+            <PropertyRef Name="K_ID" />
+          </Key>
+          <Property Name="K_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="K_Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="K_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="K_Address" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="K_Phone" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Motorcycles">
+          <Key>
+            <PropertyRef Name="M_ID" />
+          </Key>
+          <Property Name="M_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Company" Type="int" Nullable="false" />
+          <Property Name="M_Models" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="M_Year of release" Type="int" Nullable="false" />
+          <Property Name="M_Engine capacity" Type="int" Nullable="false" />
+          <Property Name="M_Maximum speed" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="O_ID" />
+          </Key>
+          <Property Name="O_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Motorcycles" Type="int" Nullable="false" />
+          <Property Name="ID_Klients" Type="int" Nullable="false" />
+          <Property Name="O_Order date" Type="datetime" Nullable="false" />
+          <Property Name="O_Price" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_Motorcycles_Company">
+          <End Role="Company" Type="Self.Company" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Motorcycles" Type="Self.Motorcycles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="C_ID" />
+            </Principal>
+            <Dependent Role="Motorcycles">
+              <PropertyRef Name="ID_Company" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_Klients">
+          <End Role="Klients" Type="Self.Klients" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klients">
+              <PropertyRef Name="K_ID" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="ID_Klients" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_Motorcycles">
+          <End Role="Motorcycles" Type="Self.Motorcycles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Motorcycles">
+              <PropertyRef Name="M_ID" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="ID_Motorcycles" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище KompanyMotorrrModelContainer">
+          <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Klients" EntityType="Self.Klients" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Motorcycles" EntityType="Self.Motorcycles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Motorcycles_Company" Association="Self.FK_Motorcycles_Company">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Motorcycles" EntitySet="Motorcycles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Klients" Association="Self.FK_Orders_Klients">
+            <End Role="Klients" EntitySet="Klients" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Motorcycles" Association="Self.FK_Orders_Motorcycles">
+            <End Role="Motorcycles" EntitySet="Motorcycles" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="KompanyMotorrrModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="C_ID" />
+          </Key>
+          <Property Name="C_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="C_Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="C_Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="C_Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Motorcycles" Relationship="Self.FK_Motorcycles_Company" FromRole="Company" ToRole="Motorcycles" />
+        </EntityType>
+        <EntityType Name="Klient">
+          <Key>
+            <PropertyRef Name="K_ID" />
+          </Key>
+          <Property Name="K_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="K_Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="K_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="K_Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="K_Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_Klients" FromRole="Klients" ToRole="Orders" />
+        </EntityType>
+        <EntityType Name="Motorcycle">
+          <Key>
+            <PropertyRef Name="M_ID" />
+          </Key>
+          <Property Name="M_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Company" Type="Int32" Nullable="false" />
+          <Property Name="M_Models" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="M_Year_of_release" Type="Int32" Nullable="false" />
+          <Property Name="M_Engine_capacity" Type="Int32" Nullable="false" />
+          <Property Name="M_Maximum_speed" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Company" Relationship="Self.FK_Motorcycles_Company" FromRole="Motorcycles" ToRole="Company" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_Motorcycles" FromRole="Motorcycles" ToRole="Orders" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="O_ID" />
+          </Key>
+          <Property Name="O_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Motorcycles" Type="Int32" Nullable="false" />
+          <Property Name="ID_Klients" Type="Int32" Nullable="false" />
+          <Property Name="O_Order_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="O_Price" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <NavigationProperty Name="Klient" Relationship="Self.FK_Orders_Klients" FromRole="Orders" ToRole="Klients" />
+          <NavigationProperty Name="Motorcycle" Relationship="Self.FK_Orders_Motorcycles" FromRole="Orders" ToRole="Motorcycles" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_Motorcycles_Company">
+          <End Role="Company" Type="Self.Company" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Motorcycles" Type="Self.Motorcycle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="C_ID" />
+            </Principal>
+            <Dependent Role="Motorcycles">
+              <PropertyRef Name="ID_Company" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_Klients">
+          <End Role="Klients" Type="Self.Klient" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klients">
+              <PropertyRef Name="K_ID" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="ID_Klients" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_Motorcycles">
+          <End Role="Motorcycles" Type="Self.Motorcycle" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Motorcycles">
+              <PropertyRef Name="M_ID" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="ID_Motorcycles" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="KompanyMotorrrEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Companies" EntityType="Self.Company" />
+          <EntitySet Name="Klients" EntityType="Self.Klient" />
+          <EntitySet Name="Motorcycles" EntityType="Self.Motorcycle" />
+          <EntitySet Name="Orders" EntityType="Self.Order" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <AssociationSet Name="FK_Motorcycles_Company" Association="Self.FK_Motorcycles_Company">
+            <End Role="Company" EntitySet="Companies" />
+            <End Role="Motorcycles" EntitySet="Motorcycles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Klients" Association="Self.FK_Orders_Klients">
+            <End Role="Klients" EntitySet="Klients" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Motorcycles" Association="Self.FK_Orders_Motorcycles">
+            <End Role="Motorcycles" EntitySet="Motorcycles" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище KompanyMotorrrModelContainer" CdmEntityContainer="KompanyMotorrrEntities">
+          <EntitySetMapping Name="Companies">
+            <EntityTypeMapping TypeName="KompanyMotorrrModel.Company">
+              <MappingFragment StoreEntitySet="Company">
+                <ScalarProperty Name="C_ID" ColumnName="C_ID" />
+                <ScalarProperty Name="C_Title" ColumnName="C_Title" />
+                <ScalarProperty Name="C_Address" ColumnName="C_Address" />
+                <ScalarProperty Name="C_Phone" ColumnName="C_Phone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Klients">
+            <EntityTypeMapping TypeName="KompanyMotorrrModel.Klient">
+              <MappingFragment StoreEntitySet="Klients">
+                <ScalarProperty Name="K_ID" ColumnName="K_ID" />
+                <ScalarProperty Name="K_Surname" ColumnName="K_Surname" />
+                <ScalarProperty Name="K_Name" ColumnName="K_Name" />
+                <ScalarProperty Name="K_Address" ColumnName="K_Address" />
+                <ScalarProperty Name="K_Phone" ColumnName="K_Phone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Motorcycles">
+            <EntityTypeMapping TypeName="KompanyMotorrrModel.Motorcycle">
+              <MappingFragment StoreEntitySet="Motorcycles">
+                <ScalarProperty Name="M_ID" ColumnName="M_ID" />
+                <ScalarProperty Name="ID_Company" ColumnName="ID_Company" />
+                <ScalarProperty Name="M_Models" ColumnName="M_Models" />
+                <ScalarProperty Name="M_Year_of_release" ColumnName="M_Year of release" />
+                <ScalarProperty Name="M_Engine_capacity" ColumnName="M_Engine capacity" />
+                <ScalarProperty Name="M_Maximum_speed" ColumnName="M_Maximum speed" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="KompanyMotorrrModel.Order">
+              <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="O_ID" ColumnName="O_ID" />
+                <ScalarProperty Name="ID_Motorcycles" ColumnName="ID_Motorcycles" />
+                <ScalarProperty Name="ID_Klients" ColumnName="ID_Klients" />
+                <ScalarProperty Name="O_Order_date" ColumnName="O_Order date" />
+                <ScalarProperty Name="O_Price" ColumnName="O_Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="KompanyMotorrrModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
