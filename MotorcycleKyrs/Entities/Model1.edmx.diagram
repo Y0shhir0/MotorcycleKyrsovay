@@ -8,7 +8,7 @@
         <EntityTypeShape EntityType="KompanyMotorrrModel.Company" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
         <EntityTypeShape EntityType="KompanyMotorrrModel.Klient" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
         <EntityTypeShape EntityType="KompanyMotorrrModel.Motorcycle" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="KompanyMotorrrModel.Order" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="KompanyMotorrrModel.Order" Width="1.5" PointX="5.5" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="KompanyMotorrrModel.sysdiagram" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
         <AssociationConnector Association="KompanyMotorrrModel.FK_Motorcycles_Company" ManuallyRouted="false" />
         <AssociationConnector Association="KompanyMotorrrModel.FK_Orders_Klients" ManuallyRouted="false" />

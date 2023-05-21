@@ -14,7 +14,7 @@ namespace MotorcycleKyrs.Entities
     
     public partial class Company
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")] 
         public Company()
         {
             this.Motorcycles = new HashSet<Motorcycle>();

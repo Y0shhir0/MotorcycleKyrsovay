@@ -34,7 +34,7 @@
         <DataGrid x:Name="DataGridOrder" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Width="*" Binding="{Binding O_ID}"/>
-                <DataGridTextColumn Header="ID_ мотоциклов" Width="*" Binding="{Binding ID_Motorcycles}"/>
+                <DataGridTextColumn Header="ID_ мотоциклов" Width="*" Binding="{Binding ID_Motorcycles}"/> 
                 <DataGridTextColumn Header="ID_ клиента" Width="*" Binding="{Binding ID_Klients}"/>
                 <DataGridTextColumn Header="Дата заказа" Width="*" Binding="{Binding O_Order_date}"/>
                 <DataGridTextColumn Header="Цена" Width="*" Binding="{Binding O_Price}"/>

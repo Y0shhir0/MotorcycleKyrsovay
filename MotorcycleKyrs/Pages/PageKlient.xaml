@@ -35,10 +35,10 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Width="*" Binding="{Binding K_ID}"/>
                 <DataGridTextColumn Header="Фамилия" Width="*" Binding="{Binding K_Surname}"/>
-                <DataGridTextColumn Header="Имя" Width="*" Binding="{Binding K_Name}"/>
+                <DataGridTextColumn Header="Имя" Width="*" Binding="{Binding K_Name}"/> 
                 <DataGridTextColumn Header="Адрес" Width="*" Binding="{Binding K_Address}"/>
                 <DataGridTextColumn Header="Телефон" Width="*" Binding="{Binding K_Phone}"/>
-            </DataGrid.Columns>
+            </DataGrid.Columns> 
         </DataGrid>
     </Grid>
 </Page>

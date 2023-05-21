@@ -15,7 +15,7 @@ namespace MotorcycleKyrs.Entities
     public partial class Klient
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Klient()
+        public Klient() 
         {
             this.Orders = new HashSet<Order>();
         }

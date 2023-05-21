@@ -30,7 +30,7 @@
             </Button>
         </StackPanel>
 
-
+ 
         <DataGrid x:Name="DataGridCompany" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Width="*" Binding="{Binding C_ID}"/>

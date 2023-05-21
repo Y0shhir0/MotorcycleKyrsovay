@@ -40,7 +40,7 @@ namespace MotorcycleKyrs
 
         private void BtnСustomerbase_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Content = new PageKlient();
+            MainFrame.Content = new PageKlient(); 
         }
 
         private void BtnOrders_Click(object sender, RoutedEventArgs e)

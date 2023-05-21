@@ -63,7 +63,7 @@ namespace MotorcycleKyrs.Pages
                 addKlient.Show();
             }
         }
-
+         
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
             AddKlient addKlient = new AddKlient(null);
@@ -74,5 +74,5 @@ namespace MotorcycleKyrs.Pages
         {
             DataGridKlient.ItemsSource = Motor.GetContext().Klients.ToList();
         }
-    }
+    } 
 }

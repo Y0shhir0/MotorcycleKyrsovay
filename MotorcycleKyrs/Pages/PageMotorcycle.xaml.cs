@@ -68,10 +68,10 @@ namespace MotorcycleKyrs.Pages
             AddMotorcycle addMotorcycle = new AddMotorcycle(null);
             addMotorcycle.Show();
         }
-
+         
         private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            DataGridMotorcycle.ItemsSource = Motor.GetContext().Motorcycles.ToList();
+            DataGridMotorcycle.ItemsSource = Motor.GetContext().Motorcycles.ToList(); 
         }
     }
 }

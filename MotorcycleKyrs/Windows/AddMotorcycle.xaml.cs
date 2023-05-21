@@ -64,7 +64,7 @@ namespace MotorcycleKyrs.Windows
                 str.AppendLine("Поле не может быть отрицательным");
             if (Models.SelectedItem == null)
                 str.AppendLine("Выберите Модель");
-            if (!int.TryParse(Btt.Text, out quantity))
+            if (!int.TryParse(Btt.Text, out quantity)) 
                 str.AppendLine("Поле год выпуска только число");
             else if (quantity < 0)
                 str.AppendLine("Поле не может быть отрицательным");

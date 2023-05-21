@@ -35,7 +35,7 @@ namespace MotorcycleKyrs.Windows
             {
                 StringBuilder error = CheckField();
                 if (error.Length > 0)
-                {
+                { 
                     MessageBox.Show(error.ToString());
                     return;
                 }

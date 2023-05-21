@@ -15,6 +15,6 @@ namespace MotorcycleKyrs.Entities
             if (_context == null)
                 _context = new KompanyMotorrrEntities();
             return _context;
-        }
+        } 
     }
-}
+} 

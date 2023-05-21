@@ -33,7 +33,7 @@ namespace MotorcycleKyrs.Windows
         }
 
         private void BtnOk_Click(object sender, RoutedEventArgs e)
-        {
+        { 
             try
             {
                 StringBuilder error = CheckField();

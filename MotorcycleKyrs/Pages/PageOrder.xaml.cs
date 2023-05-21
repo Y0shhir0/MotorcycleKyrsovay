@@ -34,7 +34,7 @@ namespace MotorcycleKyrs.Pages
 
         private void BtnDell_Click(object sender, RoutedEventArgs e)
         {
-            if (DataGridOrder.SelectedItem is Order order)
+            if (DataGridOrder.SelectedItem is Order order) 
             {
                 try
                 {

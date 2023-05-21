@@ -63,7 +63,7 @@ namespace MotorcycleKyrs.Pages
                     MessageBox.Show(ex.Message);
                 }
             }
-        }
+        } 
 
         private void BtnRefresh_Click(object sender, RoutedEventArgs e)
         {
@@ -76,3 +76,4 @@ namespace MotorcycleKyrs.Pages
         }
     }
 }
+ 

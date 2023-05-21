@@ -45,7 +45,7 @@ namespace MotorcycleKyrs.Windows
                 str.AppendLine("Выберите телефон");
             return str;
         }
-
+         
         private void BtnOk_Click_1(object sender, RoutedEventArgs e)
         {
             try
