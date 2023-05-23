@@ -25,19 +25,18 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="1" Text="ID_компании:" Style="{StaticResource item_textblock}"/>
-        <TextBlock Grid.Row="2" Text="Модель :" Style="{StaticResource item_textblock}"/>
-        <TextBlock Grid.Row="3" Text="Год выпуска:" Style="{StaticResource item_textblock}"/>
-        <TextBlock Grid.Row="4" Text="Объем двигателя:" Style="{StaticResource item_textblock}"/>
-        <TextBlock Grid.Row="5" Text="Макс-скорость:" Style="{StaticResource item_textblock}"/>
+        <TextBlock Grid.Row="1" Text="Модель :" Style="{StaticResource item_textblock}"/>
+        <TextBlock Grid.Row="2" Text="Год выпуска:" Style="{StaticResource item_textblock}"/>
+        <TextBlock Grid.Row="3" Text="Объем двигателя:" Style="{StaticResource item_textblock}"/>
+        <TextBlock Grid.Row="4" Text="Макс-скорость:" Style="{StaticResource item_textblock}"/>
 
+        
 
-        <TextBox  x:Name="Bty" Grid.Row="1" Grid.Column="1" Width="250"  Text="{Binding ID_Company}"/>
-        <ComboBox x:Name="Models" Grid.Row="2" Grid.Column="1" Width="230" Height="30" SelectedItem="{Binding Motrcycle}" DisplayMemberPath="M_Models"/>
-        <TextBox  x:Name="Btt" Grid.Row="3" Grid.Column="1" Width="250"  Text="{Binding M_Year_of_release}"/>
-        <TextBox  x:Name="Btn" Grid.Row="4" Grid.Column="1"  Width="250" Text="{Binding M_Engine_capacity}"/>
-        <TextBox  x:Name="Btr" Grid.Row="5" Grid.Column="1" Width="250"  Text="{Binding M_Maximum_speed}"/>
-        <Button x:Name="BtnOk" Grid.ColumnSpan="2"  Grid.Row="7" HorizontalAlignment="Center" Width="70" Content="Ok" Click="BtnOk_Click" Margin="0,10"/>
+        <TextBox  x:Name="Btt" Grid.Row="1" Grid.Column="1" Width="250"  Text="{Binding Motrcycle}"/>
+        <TextBox  x:Name="Btt" Grid.Row="2" Grid.Column="1" Width="250"  Text="{Binding M_Year_of_release}"/>
+        <TextBox  x:Name="Btn" Grid.Row="3" Grid.Column="1"  Width="250" Text="{Binding M_Engine_capacity}"/>
+        <TextBox  x:Name="Btr" Grid.Row="4" Grid.Column="1" Width="250"  Text="{Binding M_Maximum_speed}"/>
+        <Button x:Name="BtnOk" Grid.ColumnSpan="2"  Grid.Row="5" HorizontalAlignment="Center" Width="70" Content="Ok" Click="BtnOk_Click" Margin="0,10"/>
     </Grid>
 </Window>
 

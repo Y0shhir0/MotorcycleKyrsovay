@@ -33,8 +33,6 @@
 
         <DataGrid x:Name="DataGridMotorcycle" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Width="*" Binding="{Binding M_ID}"/>
-                <DataGridTextColumn Header="ID_Компании" Width="*" Binding="{Binding ID_Company}"/>
                 <DataGridTextColumn Header="Модель" Width="*" Binding="{Binding M_Models}"/>
                 <DataGridTextColumn Header="Год выпуска" Width="*" Binding="{Binding M_Year_of_release}"/>
                 <DataGridTextColumn Header="Обьем двигателя" Width="*" Binding="{Binding M_Engine_capacity}"/>

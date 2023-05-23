@@ -33,7 +33,6 @@
 
         <DataGrid x:Name="DataGridKlient" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Width="*" Binding="{Binding K_ID}"/>
                 <DataGridTextColumn Header="Фамилия" Width="*" Binding="{Binding K_Surname}"/>
                 <DataGridTextColumn Header="Имя" Width="*" Binding="{Binding K_Name}"/> 
                 <DataGridTextColumn Header="Адрес" Width="*" Binding="{Binding K_Address}"/>
